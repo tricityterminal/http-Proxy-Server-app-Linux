@@ -1,8 +1,13 @@
-
+#include <string.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <sys/types.h>
 #include <netdb.h>
+#include <fcntl.h>
+#include <poll.h>
+
+
+#define _GNU_SOURCE
 
 
 #define http 80
@@ -90,8 +95,83 @@ struct sockaddr_in clisockaddr{
        };
 
 
+
+
+       int clisetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_REUSEADDR;
+
+       const void *clisetsockoptstnginf = clisetsockoptstng
+
+       socklen_t clisetsockoptstnginfsze = sizeof(clisetsockoptinf);
+
+       int clisetsockopt setsockopt(clisocket, sockprtcl, clisetsockopt, clisetsockoptstnginf, clisetsockoptstnginfsze);
+
+       int cligetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_REUSEADDR;
+
+       void *restrict cligetsockoptstnginf = cligetsockoptstng;
+
+       socklen_t *restrict cligetsockoptstnginfsze = sizeof(cligetsockoptstnginf)
+
+       int cligetsockopt = getsockopt(clisocket, sockprtcl, cligetsockoptstng, cligetsockoptstnginf, cligetsockoptstnginfsze);
+
+
+
+       struct sockaddr *restrict clisockaddrinfr = clisockaddrinf;
+
+       socklen_t *restrict clisockaddrinfrsze = sizeof(clisockaddrinfr);
+
+         int cligetsockinstnme = getsockname(clisocket, clisockaddrinfr, clisockaddrinfrsze);
+
+
 const struct sockaddr *clisockaddrinf = clisockaddr;
 
 socklen_t clisockaddrinfsze = sizeof(clisockaddrinf);
 
        int static clisockcnct = connect(clisocket, clisockaddrinf, clisockaddrinfsze);
+
+
+
+        int fcntlopt = O_NONBLOCK
+
+        int fcntlmde = 1;
+
+        int clifilecntrliop = fcntl(clisocket, fcntlopt, fcntlmde);
+
+
+
+        struct pollfd *clipolliopfdinf = clipolliopfd;
+
+        nfds_t clipolliopfd[1] = {0};
+
+        int clipolltimeout = 0;
+
+               int clipolliop = poll(clipolliopfdinf, clipolliopfd[1], clipolltimeout;
+
+               short clipollioprd = POLLIN|POLLPRI|POLLRDHUP;
+
+               short clipolliopwr = POLLOUT|POLLPRI|POLLHUP;
+
+
+
+               struct pollfd clipolliopfd {
+                              clipolliopfd.fd = clisocket;         /* file descriptor */
+                              clipolliopfd.events = clipollioprd;     /* requested events */
+                              clipolliopfd.revents = clipolliopwr;
+                              memset(&clipolliopfd, 0, sizeof(clipolliopfd));
+                          };
+
+                          const void clisendbtndx[clisendbtndxsze];
+
+                          size_t clisendbtndxsze = sizeof(clisendbtndx);
+
+                          int clisendflgs = MSG_CONFIRM|MSG_DONTROUTE|MSG_DONTWAIT|MSG_OOB;
+
+                          ssize_t clisendbt = send(clisocket, clisendbtndx[clisendbtndxsze] clisendbtndxsze, clisendflgs);
+
+
+                          void clirecvbtndx[clirecvbtndxsze];
+
+                          size_t clirecvbtndxsze = sizeof(clirecvbtndx);
+
+                          int clirecvflags = MSG_DONTWAIT|MSG_OOB|MSG_PEEK;
+
+                          ssize_t recv(clisocket, clirecvbtndx[clirecvbtndxsze], clirecvbtndxsze, clirecvflags);
