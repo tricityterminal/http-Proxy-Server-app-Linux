@@ -1,8 +1,11 @@
 
 #include <sys/socket.h>
 #include <netinet/in.h>
+#include <sys/types.h>
 #include <netdb.h>
 
+
+#define http 80
 
 extern int sockvrsn, socktyp, sockprtcl;
 
@@ -16,7 +19,7 @@ extern const struct sockaddr *clisockaddrinf;
 
 char *cliaddrnfoiphost = NULL;
 
-
+const struct addrinfo *cliaddrnfoinfr = NULL;
 
 struct addrinfo cliaddrnfo{
               cliaddrnfo.ai_flags = clisockmde;
@@ -26,13 +29,18 @@ struct addrinfo cliaddrnfo{
               cliaddrnfo.ai_addrlen = clisockaddrinfsze;
               cliaddrnfo.ai_addr = clisockaddrinf;
               cliaddrnfo.ai_canonname = cliaddrnfoiphost;
-              cliaddrnfo.ai_next;
+              cliaddrnfo.ai_next = cliaddrnfoinfr;
+              memset(&cliaddrnfo, 0, sizeof(cliaddrnfo));
           };
 
-          int getaddrinfo(const char *restrict node,
-                                 const char *restrict service,
-                                 const struct addrinfo *restrict hints,
-                                 struct addrinfo **restrict res);
+const struct addrinfo *restrict cliaddrnfoinf = cliaddrnfo;
+
+struct addrinfo ** restrict cliaddrnfoinfret = clisockaddrinfr;
+
+const char *restrict getaddrinfoclistng = "http";
+
+
+          int getaddrinfoinst = getaddrinfo(NULL, getaddrinfoclistng, cliaddrnfoinf, cliaddrnfoinfret);
 
                  void freeaddrinfo(struct addrinfo *res);
 
@@ -57,7 +65,8 @@ struct addrinfo cliaddrnfo{
 
       struct sockaddr clisockipaddr{
                  clisockipaddr.sa_family = clisockipaddrvrsn;      /* Address family */
-                 clisockipaddr.sa_data = clisockipaddrstrng[clisockipaddrstrng+1]      /* Socket address */
+                 clisockipaddr.sa_data = clisockipaddrstrng[clisockipaddrstrng+1]
+                 memset(&clisockipaddr, 0, sizeof(clisockipaddr));
              };
 
 
@@ -68,13 +77,16 @@ struct addrinfo cliaddrnfo{
 
              struct in_addr clisockip{
                  clisockip.s_addr = clisockipaddrnt;
+                 memset(&clisockip, 0, sizeof(clisockip));
              }
 
 
 struct sockaddr_in clisockaddr{
            clisockaddr.sin_family = clisockaddrvrsn;    /* AF_INET */
            clisockaddr.sin_port = clisockaddrport;       /* Port number */
-           clisockaddr.sin_addr.s_addr = clisockipaddrnt;       /* IPv4 address */
+           clisockaddr.sin_addr.s_addr = clisockipaddrnt;
+           memset(&clisockaddr, 0, sizeof(clisockaddr));
+
        };
 
 
