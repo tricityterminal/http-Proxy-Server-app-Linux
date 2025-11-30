@@ -38,6 +38,9 @@ struct addrinfo cliaddrnfo{
               memset(&cliaddrnfo, 0, sizeof(cliaddrnfo));
           };
 
+
+
+
 const struct addrinfo *restrict cliaddrnfoinf = cliaddrnfo;
 
 struct addrinfo ** restrict cliaddrnfoinfret = clisockaddrinfr;
@@ -46,8 +49,7 @@ const char *restrict getaddrinfoclistng = "http";
 
 
           int getaddrinfoinst = getaddrinfo(NULL, getaddrinfoclistng, cliaddrnfoinf, cliaddrnfoinfret);
-
-                 void freeaddrinfo(struct addrinfo *res);
+{
 
 
  int sockvrsn = AF_INET;
@@ -57,6 +59,7 @@ const char *restrict getaddrinfoclistng = "http";
  int sockprtcl = IPPROTO_TCP;
 
        int static clisocket = socket(sockvrsn, socktyp, sockprtcl);
+       {
 
       sa_family_t clisockaddrvrsn = sockvrsn;
 
@@ -104,7 +107,7 @@ struct sockaddr_in clisockaddr{
        socklen_t clisetsockoptstnginfsze = sizeof(clisetsockoptinf);
 
        int clisetsockopt setsockopt(clisocket, sockprtcl, clisetsockopt, clisetsockoptstnginf, clisetsockoptstnginfsze);
-
+{
        int cligetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_REUSEADDR;
 
        void *restrict cligetsockoptstnginf = cligetsockoptstng;
@@ -112,7 +115,7 @@ struct sockaddr_in clisockaddr{
        socklen_t *restrict cligetsockoptstnginfsze = sizeof(cligetsockoptstnginf)
 
        int cligetsockopt = getsockopt(clisocket, sockprtcl, cligetsockoptstng, cligetsockoptstnginf, cligetsockoptstnginfsze);
-
+{
 
 
        struct sockaddr *restrict clisockaddrinfr = clisockaddrinf;
@@ -120,14 +123,14 @@ struct sockaddr_in clisockaddr{
        socklen_t *restrict clisockaddrinfrsze = sizeof(clisockaddrinfr);
 
          int cligetsockinstnme = getsockname(clisocket, clisockaddrinfr, clisockaddrinfrsze);
-
+{
 
 const struct sockaddr *clisockaddrinf = clisockaddr;
 
 socklen_t clisockaddrinfsze = sizeof(clisockaddrinf);
 
        int static clisockcnct = connect(clisocket, clisockaddrinf, clisockaddrinfsze);
-
+{
 
 
         int fcntlopt = O_NONBLOCK
@@ -135,7 +138,7 @@ socklen_t clisockaddrinfsze = sizeof(clisockaddrinf);
         int fcntlmde = 1;
 
         int clifilecntrliop = fcntl(clisocket, fcntlopt, fcntlmde);
-
+{
 
 
         struct pollfd *clipolliopfdinf = clipolliopfd;
@@ -145,7 +148,7 @@ socklen_t clisockaddrinfsze = sizeof(clisockaddrinf);
         int clipolltimeout = 0;
 
                int clipolliop = poll(clipolliopfdinf, clipolliopfd[1], clipolltimeout;
-
+{
                short clipollioprd = POLLIN|POLLPRI|POLLRDHUP;
 
                short clipolliopwr = POLLOUT|POLLPRI|POLLHUP;
@@ -166,7 +169,7 @@ socklen_t clisockaddrinfsze = sizeof(clisockaddrinf);
                           int clisendflgs = MSG_CONFIRM|MSG_DONTROUTE|MSG_DONTWAIT|MSG_OOB;
 
                           ssize_t clisendbt = send(clisocket, clisendbtndx[clisendbtndxsze] clisendbtndxsze, clisendflgs);
-
+{
 
                           void clirecvbtndx[clirecvbtndxsze];
 
@@ -174,4 +177,24 @@ socklen_t clisockaddrinfsze = sizeof(clisockaddrinf);
 
                           int clirecvflags = MSG_DONTWAIT|MSG_OOB|MSG_PEEK;
 
-                          ssize_t recv(clisocket, clirecvbtndx[clirecvbtndxsze], clirecvbtndxsze, clirecvflags);
+                          ssize_t clirecvbt = recv(clisocket, clirecvbtndx[clirecvbtndxsze], clirecvbtndxsze, clirecvflags);
+{
+
+
+}
+}
+}
+}
+}
+}
+}
+}
+}
+
+
+struct addrinfo *cliaddrnfoinfretnl = cliaddrnfoinfret;
+
+void freeaddrinfo(cliaddrnfoinfretnl);
+
+
+}
