@@ -69,7 +69,7 @@ const char *restrict getaddrinfoclistng = "http";
 
       char clisockipaddrstrng[clisockipaddrstrng+1] = NULL;
 
-      int clisockipaddrstrngsze = sizeof(clisockipaddrstrng)
+      int clisockipaddrstrngsze = sizeof(clisockipaddrstrng);
 
       struct sockaddr clisockipaddr{
                  clisockipaddr.sa_family = clisockipaddrvrsn;      /* Address family */
@@ -79,9 +79,9 @@ const char *restrict getaddrinfoclistng = "http";
 
 
 
-             in_addr_t clisockipaddrnt = inet_addr(clisockipaddrhst2nt);
-
              const char *clisockipaddrhst2nt = htonl(clisockipaddrstrng[clisockipaddrstrng+1]);
+
+              in_addr_t clisockipaddrnt = inet_addr(clisockipaddrhst2nt);
 
              struct in_addr clisockip{
                  clisockip.s_addr = clisockipaddrnt;
