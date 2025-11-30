@@ -44,7 +44,7 @@ socklen_t servportipsze = sizeof(servportip);
 int servdmnapiflgs = NI_NUMERICHOST|NI_NUMERICSERV;
 
 int servdmnapi = getnameinfo(gtmmenfosockaddr, gtmmenfosockaddrsze, hostnmeip[hostnmeipsze+1], hostnmeipsze, servportip[servportipsze+1], servportipsze, int flags);
-
+{
 const char *restrict hostnmeipstrng = hostnmeip[hostnmeipsze+1];
 
 const char *restrict servportipstrng = servportip[servportipsze+1];
@@ -88,7 +88,7 @@ int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", 
 
 
                         int getaddrinfoinst2 = getaddrinfo(NULL, getaddrinfoclistng2, srvaddrnfoinf, srvaddrnfoinfret);
-
+{
 
 
 
@@ -101,7 +101,7 @@ int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", 
     int sockprtcl2 = IPPROTO_TCP;
 
     int static srvsocket = socket(sockvrsn2, socktyp2, sockprtcl2);
-
+{
 
 
 
@@ -158,7 +158,7 @@ struct sockaddr_in srvsockaddr{
           int srvpndlstnlog = SOMAXCONN;
 
            int static srvpndlstn = listen(servsocket, SOMAXCONN);
-
+{
 
            const struct sockaddr *srvsockaddrinf = srvsockaddr;
 
@@ -167,16 +167,16 @@ struct sockaddr_in srvsockaddr{
 
 
            int static servapicnct = bind(srvsocket, srvsockaddrinf, srvsockaddrinfsze);
-
+{
           struct sockaddr *_Nullable restrict accptsrvsockaddr = srvsockaddr
 
           socklen_t *_Nullable restrict accptsrvsockaddrlen = sizeof(accptsrvsockaddr);
 
            int static srvacptcnct0 = accept(servsocket, accptsrvsockaddr, accptsrvsockaddrlen);
-
+{
            pid_t ipsappfd;
 
-           ipsappfd = fork(void);
+           ipsappfd = fork();
 
            while(ipsappfd <= 300){
 
@@ -238,9 +238,23 @@ struct sockaddr_in srvsockaddr{
                              int srvrecvflags = MSG_DONTWAIT|MSG_OOB|MSG_PEEK;
 
                              ssize_t srvrecvbt = recv(clisocket, clirecvbtndx[clirecvbtndxsze], clirecvbtndxsze, clirecvflags);
+{
 
 
 
+}
+}
+}
+}
+}
+}
+}
+}
+}
+}
+
+
+struct addrinfo *srvaddrnfoinfretnl = srvaddrnfoinfret;
 
 void freeaddrinfo(srvaddrnfoinfretnl);
 
