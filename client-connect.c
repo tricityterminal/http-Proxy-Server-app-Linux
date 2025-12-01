@@ -16,11 +16,15 @@ extern int sockvrsn, socktyp, sockprtcl;
 
 extern int clisocket;
 
-int clisockmde = AI_PASSIVE|AI_ADDRCONFIG|AI_CANONNAME;
-
 extern socklen_t clisockaddrinfsze;
 
 extern const struct sockaddr *clisockaddrinf;
+
+int cliprogram(int cliprogramend)
+{
+
+int clisockmde = AI_PASSIVE|AI_ADDRCONFIG|AI_CANONNAME;
+
 
 char *cliaddrnfoiphost = NULL;
 
@@ -51,6 +55,11 @@ const char *restrict getaddrinfoclistng = "http";
           int getaddrinfoinst = getaddrinfo(NULL, getaddrinfoclistng, cliaddrnfoinf, cliaddrnfoinfret);
 {
 
+
+struct addrinfo *cliaddrnfoinfretnl = cliaddrnfoinfret;
+
+void freeaddrinfo(cliaddrnfoinfretnl);
+{
 
  int sockvrsn = AF_INET;
 
@@ -190,11 +199,14 @@ socklen_t clisockaddrinfsze = sizeof(clisockaddrinf);
 }
 }
 }
+}
+}
+
+cliprogramend = 0;
+
+return cliprogramend;
 
 
-struct addrinfo *cliaddrnfoinfretnl = cliaddrnfoinfret;
-
-void freeaddrinfo(cliaddrnfoinfretnl);
 
 
 }

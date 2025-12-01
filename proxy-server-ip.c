@@ -91,8 +91,10 @@ int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", 
 {
 
 
+struct addrinfo *srvaddrnfoinfretnl = srvaddrnfoinfret;
 
-
+void freeaddrinfo(srvaddrnfoinfretnl);
+{
 
     int sockvrsn2 = AF_INET;
 
@@ -252,11 +254,15 @@ struct sockaddr_in srvsockaddr{
 }
 }
 }
+}
+}
+}
+
+return 0;
+
+}
 
 
-struct addrinfo *srvaddrnfoinfretnl = srvaddrnfoinfret;
-
-void freeaddrinfo(srvaddrnfoinfretnl);
 
 
 
