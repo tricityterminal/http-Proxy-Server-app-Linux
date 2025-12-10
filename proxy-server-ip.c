@@ -20,16 +20,15 @@
 
 #define http 80
 
-extern int sockvrsn2, socktyp2, sockprtcl2;
+
 
 extern int srvsocket;
 
-extern socklen_t srvsockaddrinfsze;
 
-extern const struct sockaddr *srvsockaddrinf;
 
 int main(int argc, char *argv[])
 {
+
 
 const struct sockaddr *restrict gtmmenfosockaddr = srvsockaddr;
 
@@ -63,7 +62,10 @@ char *argv[2] = servportipstrng;
 int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", argv[1], argv[2]);
 
 
+      
+const struct sockaddr *srvsockaddrinf = srvsockaddr;
 
+socklen_t srvsockaddrinfsze = sizeof(srvsockaddrinf);
 
 
 
@@ -92,7 +94,7 @@ int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", 
 
               const struct addrinfo *restrict srvaddrnfoinf2 = srvaddrnfo;
 
-              struct addrinfo ** restrict srvaddrnfoinfret = srvsockaddrinfr;
+              struct addrinfo ** restrict srvaddrnfoinfret = srvaddrnfoinfr;
 
               const char *restrict getaddrinfoclistng2 = "http";
 
@@ -101,9 +103,9 @@ int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", 
 {
 
 
-struct addrinfo *srvaddrnfoinfretnl = srvaddrnfoinfret;
 
-void freeaddrinfo(srvaddrnfoinfretnl);
+
+void freeaddrinfo(srvaddrnfoinfr);
 {
 
     int sockvrsn2 = AF_INET;
@@ -172,9 +174,6 @@ struct sockaddr_in srvsockaddr{
            int static srvpndlstn = listen(servsocket, SOMAXCONN);
 {
 
-           const struct sockaddr *srvsockaddrinf = srvsockaddr;
-
-           socklen_t srvsockaddrinfsze = sizeof(srvsockaddrinf);
 
 
 

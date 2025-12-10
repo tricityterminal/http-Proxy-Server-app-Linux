@@ -17,18 +17,22 @@
 
 #define http 80
 
-extern int sockvrsn, socktyp, sockprtcl;
+
 
 extern int clisocket;
 
-extern socklen_t clisockaddrinfsze;
 
-extern const struct sockaddr *clisockaddrinf;
+
 
 int cliprogram(int cliprogramend)
 {
 
-int clisockmde = AI_PASSIVE|AI_ADDRCONFIG|AI_CANONNAME;
+const struct sockaddr *clisockaddrinf = clisockaddr;
+
+socklen_t clisockaddrinfsze = sizeof(clisockaddrinf);
+
+
+int clisockmde = AI_PASSIVE|AI_ADDRCONFIG;
 
 
 char *cliaddrnfoiphost = NULL;
@@ -52,7 +56,7 @@ struct addrinfo cliaddrnfo{
 
 const struct addrinfo *restrict cliaddrnfoinf = cliaddrnfo;
 
-struct addrinfo ** restrict cliaddrnfoinfret = clisockaddrinfr;
+struct addrinfo ** restrict cliaddrnfoinfret = cliaddrnfoinfr;
 
 const char *restrict getaddrinfoclistng = "http";
 
@@ -61,9 +65,8 @@ const char *restrict getaddrinfoclistng = "http";
 {
 
 
-struct addrinfo *cliaddrnfoinfretnl = cliaddrnfoinfret;
 
-void freeaddrinfo(cliaddrnfoinfretnl);
+void freeaddrinfo(cliaddrnfoinfr);
 {
 
  int sockvrsn = AF_INET;
@@ -139,9 +142,7 @@ struct sockaddr_in clisockaddr{
          int cligetsockinstnme = getsockname(clisocket, clisockaddrinfr, clisockaddrinfrsze);
 {
 
-const struct sockaddr *clisockaddrinf = clisockaddr;
 
-socklen_t clisockaddrinfsze = sizeof(clisockaddrinf);
 
        int static clisockcnct = connect(clisocket, clisockaddrinf, clisockaddrinfsze);
 {
