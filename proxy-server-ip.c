@@ -13,7 +13,7 @@
 #include <sys/wait.h>
 
 
-#include"client-connect.c"
+#include "client-connect.c"
 
 
 
@@ -44,7 +44,7 @@ socklen_t servportipsze = sizeof(servportip);
 
 int servdmnapiflgs = NI_NUMERICHOST|NI_NUMERICSERV;
 
-int servdmnapi = getnameinfo(gtmmenfosockaddr, gtmmenfosockaddrsze, hostnmeip[hostnmeipsze+1], hostnmeipsze, servportip[servportipsze+1], servportipsze, int flags);
+int servdmnapi = getnameinfo(gtmmenfosockaddr, gtmmenfosockaddrsze, hostnmeip[hostnmeipsze+1], hostnmeipsze, servportip[servportipsze+1], servportipsze, servdmnapiflgs);
 {
 const char *restrict hostnmeipstrng = hostnmeip[hostnmeipsze+1];
 
@@ -99,7 +99,7 @@ socklen_t srvsockaddrinfsze = sizeof(srvsockaddrinf);
               const char *restrict getaddrinfoclistng2 = "http";
 
 
-                        int getaddrinfoinst2 = getaddrinfo(NULL, getaddrinfoclistng2, srvaddrnfoinf, srvaddrnfoinfret);
+int getaddrinfoinst2 = getaddrinfo(NULL, getaddrinfoclistng2, srvaddrnfoinf, srvaddrnfoinfret);
 {
 
 
@@ -119,10 +119,6 @@ void freeaddrinfo(srvaddrnfoinfr);
 
 
 
-    sa_family_t srvsockaddrvrsn = sockvrsn2;
-
-    in_port_t srvsockaddrport = htons(80); // http port tcp/ip //
-
     sa_family_t srvsockipaddrvrsn = sockvrsn2;
 
     char srvsockipaddrstrng[srvsockipaddrstrng+1] = NULL;
@@ -130,7 +126,7 @@ void freeaddrinfo(srvaddrnfoinfr);
     int srvsockipaddrstrngsze = sizeof(srvsockipaddrstrng);
 
     struct sockaddr srvsockipaddr{
-               srvsockipaddr.sa_family = srvsockipaddrvrsn;      /* Address family */
+               srvsockipaddr.sa_family = srvsockipaddrvrsn;      
                srvsockipaddr.sa_data = srvsockipaddrstrng[srvsockipaddrstrng+1]
                memset(&srvsockipaddr, 0, sizeof(srvsockipaddr));
            };
@@ -143,14 +139,19 @@ void freeaddrinfo(srvaddrnfoinfr);
            struct in_addr srvsockip{
                srvsockip.s_addr = srvsockipaddrnt;
                memset(&srvsockip, 0, sizeof(srvsockip));
-           }
-
+               };
+               
+            
+  sa_family_t srvsockaddrvrsn = sockvrsn2;
+  
+  in_port_t srvsockaddrport = htons(80);
 
 struct sockaddr_in srvsockaddr{
-         srvsockaddr.sin_family = srvsockaddrvrsn;    /* AF_INET */
-         srvsockaddr.sin_port = srvsockaddrport;       /* Port number */
+         srvsockaddr.sin_family = srvsockaddrvrsn;    
+         srvsockaddr.sin_port = srvsockaddrport;       
          srvsockaddr.sin_addr.s_addr = INADDR_ANY;
          memset(&srvsockaddr, 0, sizeof(srvsockaddr));
+         };
 
 
          int srvsetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_ACCEPTCONN|SO_REUSEPORT;
@@ -171,7 +172,7 @@ struct sockaddr_in srvsockaddr{
   {
           int srvpndlstnlog = SOMAXCONN;
 
-           int static srvpndlstn = listen(servsocket, SOMAXCONN);
+           int static srvpndlstn = listen(servsocket, srvpndlstnlog);
 {
 
 

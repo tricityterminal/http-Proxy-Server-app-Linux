@@ -78,9 +78,7 @@ void freeaddrinfo(cliaddrnfoinfr);
        int static clisocket = socket(sockvrsn, socktyp, sockprtcl);
        {
 
-      sa_family_t clisockaddrvrsn = sockvrsn;
-
-      in_port_t clisockaddrport = htons(80); // http port tcp/ip //
+     // http port tcp/ip //
 
       sa_family_t clisockipaddrvrsn = sockvrsn;
 
@@ -89,7 +87,7 @@ void freeaddrinfo(cliaddrnfoinfr);
       int clisockipaddrstrngsze = sizeof(clisockipaddrstrng);
 
       struct sockaddr clisockipaddr{
-                 clisockipaddr.sa_family = clisockipaddrvrsn;      /* Address family */
+                 clisockipaddr.sa_family = clisockipaddrvrsn;      
                  clisockipaddr.sa_data = clisockipaddrstrng[clisockipaddrstrng+1]
                  memset(&clisockipaddr, 0, sizeof(clisockipaddr));
              };
@@ -104,11 +102,14 @@ void freeaddrinfo(cliaddrnfoinfr);
                  clisockip.s_addr = clisockipaddrnt;
                  memset(&clisockip, 0, sizeof(clisockip));
              }
+  
+sa_family_t clisockaddrvrsn = sockvrsn;
 
+in_port_t clisockaddrport = htons(80);
 
 struct sockaddr_in clisockaddr{
-           clisockaddr.sin_family = clisockaddrvrsn;    /* AF_INET */
-           clisockaddr.sin_port = clisockaddrport;       /* Port number */
+           clisockaddr.sin_family = clisockaddrvrsn;    
+           clisockaddr.sin_port = clisockaddrport;       
            clisockaddr.sin_addr.s_addr = clisockipaddrnt;
            memset(&clisockaddr, 0, sizeof(clisockaddr));
 
