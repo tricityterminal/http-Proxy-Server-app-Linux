@@ -1,4 +1,8 @@
+#define _GNU_SOURCE
+
+
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -8,7 +12,7 @@
 #include <poll.h>
 
 
-#define _GNU_SOURCE
+
 
 
 #define http 80

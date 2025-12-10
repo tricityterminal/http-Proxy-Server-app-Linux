@@ -1,4 +1,7 @@
+#define _GNU_SOURCE
+
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -12,7 +15,7 @@
 
 #include"client-connect.c"
 
-#define _GNU_SOURCE
+
 
 
 #define http 80
@@ -49,7 +52,15 @@ const char *restrict hostnmeipstrng = hostnmeip[hostnmeipsze+1];
 const char *restrict servportipstrng = servportip[servportipsze+1];
 
 
-int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", string1, string2);
+
+
+int *argc = 3;
+
+char *argv[1] = hostnmeipstrng;
+
+char *argv[2] = servportipstrng;
+
+int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", argv[1], argv[2]);
 
 
 
