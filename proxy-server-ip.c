@@ -20,17 +20,25 @@
 
 #define http 80
 
-
+extern struct addrinfo srvaddrnfo;
 
 extern int srvsocket;
 
+extern struct sockaddr_in srvsockaddr;
 
+extern struct struct sockaddr srvsockipaddr;
+
+extern const char *srvsockipaddrhst2nt;
+
+extern in_addr_t srvsockipaddrnt;
+
+extern char srvsockipaddrstrng[srvsockipaddrstrngsze+1];
 
 int main(int argc, char *argv[])
 {
 
 
-const struct sockaddr *restrict gtmmenfosockaddr = srvsockaddr;
+const struct sockaddr *restrict gtmmenfosockaddr = &srvsockipaddr;
 
 socklen_t gtmmenfosockaddrsze = sizeof(gtmmenfosockaddr);
 
@@ -53,7 +61,7 @@ const char *restrict servportipstrng = servportip[servportipsze+1];
 
 
 
-int *argc = 3;
+
 
 char *argv[1] = hostnmeipstrng;
 
@@ -62,8 +70,15 @@ char *argv[2] = servportipstrng;
 int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", argv[1], argv[2]);
 
 
-      
-const struct sockaddr *srvsockaddrinf = srvsockaddr;
+
+  int sockvrsn2 = AF_INET;
+
+    int socktyp2 = SOCK_STREAM;
+
+    int sockprtcl2 = IPPROTO_TCP;
+
+
+const struct sockaddr *srvsockaddrinf = &srvsockipaddr;
 
 socklen_t srvsockaddrinfsze = sizeof(srvsockaddrinf);
 
@@ -92,14 +107,14 @@ socklen_t srvsockaddrinfsze = sizeof(srvsockaddrinf);
 
 
 
-              const struct addrinfo *restrict srvaddrnfoinf2 = srvaddrnfo;
+              const struct addrinfo *restrict srvaddrnfoinf2 = &srvaddrnfo;
 
-              struct addrinfo ** restrict srvaddrnfoinfret = srvaddrnfoinfr;
+              struct addrinfo ** restrict srvaddrnfoinfret = &srvaddrnfoinfr;
 
               const char *restrict getaddrinfoclistng2 = "http";
 
 
-int getaddrinfoinst2 = getaddrinfo(NULL, getaddrinfoclistng2, srvaddrnfoinf, srvaddrnfoinfret);
+int getaddrinfoinst2 = getaddrinfo(NULL, getaddrinfoclistng2, srvaddrnfoinf2, srvaddrnfoinfret);
 {
 
 
@@ -108,11 +123,8 @@ int getaddrinfoinst2 = getaddrinfo(NULL, getaddrinfoclistng2, srvaddrnfoinf, srv
 void freeaddrinfo(srvaddrnfoinfr);
 {
 
-    int sockvrsn2 = AF_INET;
 
-    int socktyp2 = SOCK_STREAM;
 
-    int sockprtcl2 = IPPROTO_TCP;
 
     int static srvsocket = socket(sockvrsn2, socktyp2, sockprtcl2);
 {
@@ -121,12 +133,12 @@ void freeaddrinfo(srvaddrnfoinfr);
 
     sa_family_t srvsockipaddrvrsn = sockvrsn2;
 
-    char srvsockipaddrstrng[srvsockipaddrstrng+1] = NULL;
+    char srvsockipaddrstrng[srvsockipaddrstrngsze+1] = NULL;
 
     int srvsockipaddrstrngsze = sizeof(srvsockipaddrstrng);
 
     struct sockaddr srvsockipaddr{
-               srvsockipaddr.sa_family = srvsockipaddrvrsn;      
+               srvsockipaddr.sa_family = srvsockipaddrvrsn;
                srvsockipaddr.sa_data = srvsockipaddrstrng[srvsockipaddrstrng+1]
                memset(&srvsockipaddr, 0, sizeof(srvsockipaddr));
            };
@@ -140,16 +152,16 @@ void freeaddrinfo(srvaddrnfoinfr);
                srvsockip.s_addr = srvsockipaddrnt;
                memset(&srvsockip, 0, sizeof(srvsockip));
                };
-               
-            
+
+
   sa_family_t srvsockaddrvrsn = sockvrsn2;
-  
+
   in_port_t srvsockaddrport = htons(80);
 
 struct sockaddr_in srvsockaddr{
-         srvsockaddr.sin_family = srvsockaddrvrsn;    
-         srvsockaddr.sin_port = srvsockaddrport;       
-         srvsockaddr.sin_addr.s_addr = INADDR_ANY;
+         srvsockaddr.sin_family = srvsockaddrvrsn;
+         srvsockaddr.sin_port = srvsockaddrport;
+         srvsockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
          memset(&srvsockaddr, 0, sizeof(srvsockaddr));
          };
 
@@ -180,7 +192,7 @@ struct sockaddr_in srvsockaddr{
 
            int static servapicnct = bind(srvsocket, srvsockaddrinf, srvsockaddrinfsze);
 {
-          struct sockaddr *_Nullable restrict accptsrvsockaddr = srvsockaddr
+          struct sockaddr *_Nullable restrict accptsrvsockaddr = &srvsockaddr
 
           socklen_t *_Nullable restrict accptsrvsockaddrlen = sizeof(accptsrvsockaddr);
 
@@ -271,11 +283,3 @@ struct sockaddr_in srvsockaddr{
 return 0;
 
 }
-
-
-
-
-
-
-
-
