@@ -18,7 +18,7 @@
 #define http 80
 
 
-extern char clisockipaddrstrng[clisockipaddrstrng+1];
+extern char clisockipaddrstrng[clisockipaddrstrngsze+1];
 
 extern int clisocket;
 
@@ -54,7 +54,7 @@ char *cliaddrnfoiphost = NULL;
 
 const struct addrinfo *cliaddrnfoinfr = NULL;
 
-struct addrinfo cliaddrnfo{
+struct addrinfo cliaddrnfo {
               cliaddrnfo.ai_flags = clisockmde;
               cliaddrnfo.ai_family = sockvrsn;
               cliaddrnfo.ai_socktype = socktyp;
@@ -71,7 +71,7 @@ struct addrinfo cliaddrnfo{
 
 const struct addrinfo *restrict cliaddrnfoinf = &cliaddrnfo;
 
-struct addrinfo ** restrict cliaddrnfoinfret = &cliaddrnfoinfr;
+struct addrinfo ** restrict cliaddrnfoinfret = cliaddrnfoinfr;
 
 const char *restrict getaddrinfoclistng = "http";
 
@@ -81,44 +81,44 @@ const char *restrict getaddrinfoclistng = "http";
 
 
 
-void freeaddrinfo(cliaddrnfoinf);
+void cliaddrnfoclr = freeaddrinfo(cliaddrnfoinfr);
 {
 
 
 
-       int static clisocket = socket(sockvrsn, socktyp, sockprtcl);
+       int clisocket = socket(sockvrsn, socktyp, sockprtcl);
        {
 
      // http port tcp/ip //
 
       sa_family_t clisockipaddrvrsn = sockvrsn;
 
-      char clisockipaddrstrng[clisockipaddrstrng+1] = NULL;
+      char clisockipaddrstrng[clisockipaddrstrngsze+1] = NULL;
 
       int clisockipaddrstrngsze = sizeof(clisockipaddrstrng);
 
       struct sockaddr clisockipaddr{
                  clisockipaddr.sa_family = clisockipaddrvrsn;
-                 clisockipaddr.sa_data = clisockipaddrstrng[clisockipaddrstrng+1]
+                 clisockipaddr.sa_data = clisockipaddrstrng[clisockipaddrstrngsze+1];
                  memset(&clisockipaddr, 0, sizeof(clisockipaddr));
              };
 
 
 
-             const char *clisockipaddrhst2nt = htonl(clisockipaddrstrng[clisockipaddrstrng+1]);
+             const char *clisockipaddrhst2nt = htonl(clisockipaddrstrng[clisockipaddrstrngsze+1]);
 
               in_addr_t clisockipaddrnt = inet_addr(clisockipaddrhst2nt);
 
-             struct in_addr clisockip{
+             struct in_addr clisockip {
                  clisockip.s_addr = clisockipaddrnt;
                  memset(&clisockip, 0, sizeof(clisockip));
-             }
+             };
 
 sa_family_t clisockaddrvrsn = sockvrsn;
 
 in_port_t clisockaddrport = htons(80);
 
-struct sockaddr_in clisockaddr{
+struct sockaddr_in clisockaddr {
            clisockaddr.sin_family = clisockaddrvrsn;
            clisockaddr.sin_port = clisockaddrport;
            clisockaddr.sin_addr.s_addr = clisockipaddrnt;
@@ -131,15 +131,15 @@ struct sockaddr_in clisockaddr{
 
        int clisetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_REUSEADDR;
 
-       const void *clisetsockoptstnginf = clisetsockoptstng
+       const void *clisetsockoptstnginf = &clisetsockoptstng
 
        socklen_t clisetsockoptstnginfsze = sizeof(clisetsockoptinf);
 
-       int clisetsockopt setsockopt(clisocket, sockprtcl, clisetsockopt, clisetsockoptstnginf, clisetsockoptstnginfsze);
+       int clisetsockopt = setsockopt(clisocket, sockprtcl, clisetsockopt, clisetsockoptstnginf, clisetsockoptstnginfsze);
 {
        int cligetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_REUSEADDR;
 
-       void *restrict cligetsockoptstnginf = cligetsockoptstng;
+       void *restrict cligetsockoptstnginf = &cligetsockoptstng;
 
        socklen_t *restrict cligetsockoptstnginfsze = sizeof(cligetsockoptstnginf)
 
@@ -159,7 +159,7 @@ struct sockaddr_in clisockaddr{
 {
 
 
-        int fcntlopt = O_NONBLOCK
+        int fcntlopt = O_NONBLOCK;
 
         int fcntlmde = 1;
 
@@ -173,7 +173,7 @@ struct sockaddr_in clisockaddr{
 
         int clipolltimeout = 0;
 
-               int clipolliop = poll(clipolliopfdinf, clipolliopfd[1], clipolltimeout;
+               int clipolliop = poll(clipolliopfdinf, clipolliopfd[1], clipolltimeout);
 {
                short clipollioprd = POLLIN|POLLPRI|POLLRDHUP;
 

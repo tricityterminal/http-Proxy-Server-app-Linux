@@ -20,6 +20,8 @@
 
 #define http 80
 
+extern char srvsockipaddrstrng[srvsockipaddrstrngsze+1];
+
 extern struct addrinfo srvaddrnfo;
 
 extern int srvsocket;
@@ -32,7 +34,7 @@ extern const char *srvsockipaddrhst2nt;
 
 extern in_addr_t srvsockipaddrnt;
 
-extern char srvsockipaddrstrng[srvsockipaddrstrngsze+1];
+
 
 int main(int argc, char *argv[])
 {
@@ -85,7 +87,7 @@ socklen_t srvsockaddrinfsze = sizeof(srvsockaddrinf);
 
 
 
-    int srvsockmde = AI_NUMERICHOST|AI_NUMERICSERV|AI_ADDRCONFIG|AI_CANONNAME;
+    int srvsockmde = AI_NUMERICHOST|AI_NUMERICSERV|AI_ADDRCONFIG;
 
 
 
@@ -106,27 +108,28 @@ socklen_t srvsockaddrinfsze = sizeof(srvsockaddrinf);
               };
 
 
-
-              const struct addrinfo *restrict srvaddrnfoinf2 = &srvaddrnfo;
+              
+              
+              const struct addrinfo *restrict srvaddrnfoinf = &srvaddrnfo;
 
               struct addrinfo ** restrict srvaddrnfoinfret = &srvaddrnfoinfr;
 
-              const char *restrict getaddrinfoclistng2 = "http";
+              const char *restrict getaddrinfosrvstng = "http";
 
 
-int getaddrinfoinst2 = getaddrinfo(NULL, getaddrinfoclistng2, srvaddrnfoinf2, srvaddrnfoinfret);
+int getaddrinfoinst2 = getaddrinfo(NULL, getaddrinfosrvstng, srvaddrnfoinf, srvaddrnfoinfret);
 {
 
 
 
 
-void freeaddrinfo(srvaddrnfoinfr);
+void getaddrinfoinst2zro = freeaddrinfo(srvaddrnfoinfr);
 {
 
 
 
 
-    int static srvsocket = socket(sockvrsn2, socktyp2, sockprtcl2);
+    int srvsocket = socket(sockvrsn2, socktyp2, sockprtcl2);
 {
 
 
@@ -144,7 +147,7 @@ void freeaddrinfo(srvaddrnfoinfr);
            };
 
 
-           const char *srvsockipaddrhst2nt = htonl(srvsockipaddrstrng[srvsockipaddrstrng+1]);
+           const char *srvsockipaddrhst2nt = htonl(srvsockipaddrstrng[srvsockipaddrstrngsze+1]);
 
            in_addr_t srvsockipaddrnt = inet_addr(srvsockipaddrhst2nt);
 
@@ -158,7 +161,7 @@ void freeaddrinfo(srvaddrnfoinfr);
 
   in_port_t srvsockaddrport = htons(80);
 
-struct sockaddr_in srvsockaddr{
+struct sockaddr_in srvsockaddr {
          srvsockaddr.sin_family = srvsockaddrvrsn;
          srvsockaddr.sin_port = srvsockaddrport;
          srvsockaddr.sin_addr.s_addr = htonl(INADDR_ANY);
@@ -168,7 +171,7 @@ struct sockaddr_in srvsockaddr{
 
          int srvsetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_ACCEPTCONN|SO_REUSEPORT;
 
-         const void *srvsetsockoptstnginf = srvsetsockoptstng
+         const void *srvsetsockoptstnginf = &srvsetsockoptstng
 
          socklen_t srvsetsockoptstnginfsze = sizeof(srvsetsockoptinf);
 
@@ -176,7 +179,7 @@ struct sockaddr_in srvsockaddr{
   {
          int srvgetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_ACCEPTCONN|SO_REUSEPORT;
 
-         void *restrict srvgetsockoptstnginf = srvgetsockoptstng;
+         void *restrict srvgetsockoptstnginf = &srvgetsockoptstng;
 
          socklen_t *restrict srvgetsockoptstnginfsze = sizeof(srvgetsockoptstnginf)
 
@@ -231,7 +234,7 @@ struct sockaddr_in srvsockaddr{
 
            int srvpolltimeout = 0;
 
-                  int srvpolliop = poll(srvpolliopfdinf, srvpolliopfd[1], srvpolltimeout;
+                  int srvpolliop = poll(srvpolliopfdinf, srvpolliopfd[1], srvpolltimeout);
    {
                   short srvpollioprd = POLLIN|POLLPRI|POLLRDHUP;
 
