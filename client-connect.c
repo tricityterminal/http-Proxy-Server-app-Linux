@@ -15,10 +15,10 @@
 
 
 
-#define "http" 80
+#define http 80
 
 
-extern char clisockipaddrstrng[clisockipaddrstrngsze+1];
+
 
 extern int clisocket;
 
@@ -29,6 +29,8 @@ extern struct sockaddr clisockipaddr;
 extern const char *clisockipaddrhst2nt;
 
 extern const in_addr_t clisockipaddrnt;
+
+
 
 void cliprogram();
 {
@@ -43,7 +45,7 @@ void cliprogram();
 
 
 const struct sockaddr *clisockaddrinf;
-clisockaddrinf = struct(sockaddr*)&clisockaddr
+clisockaddrinf = (struct sockaddr*)&clisockaddr
 
 socklen_t clisockaddrinfsze = sizeof(clisockaddr);
 
@@ -90,7 +92,7 @@ void cliaddrnfoclr = freeaddrinfo(cliaddrnfoinfr);
        int clisocket = socket(sockvrsn, socktyp, sockprtcl);
        {
 
-     // http port tcp/ip //
+
 
       sa_family_t clisockipaddrvrsn = sockvrsn;
 
@@ -149,7 +151,7 @@ struct sockaddr_in clisockaddr {
 
 
        struct sockaddr *restrict clisockaddrinfr;
-       clisockaddrinfr = struct(sockadrr*)&clisockaddr;
+       clisockaddrinfr = (struct sockaddr*)&clisockaddr;
 
        socklen_t *restrict clisockaddrinfrsze = sizeof(clisockaddrinfr);
 

@@ -214,7 +214,7 @@ struct sockaddr_in srvsockaddr {
 
                int ipappfdwtopt = WNOHANG;
 
-                      pid_t ipappfdwt = waitpid(ipappfd, ipappfdwtst, ipappfdwtopt);
+                      pid_t ipappfdwt = waitpid(ipsappfd, ipappfdwtst, ipappfdwtopt);
 
                       return 0;
 
@@ -252,18 +252,18 @@ struct sockaddr_in srvsockaddr {
                                  memset(&srvpolliopfd, 0, sizeof(srvpolliopfd));
                              };
 
-                             const void srvsendbtndxvd = srvsendbtndx[srvsendbtndxsze];
+                             const void *srvsendbtndxvd = srvsendbtndx[srvsendbtndxsze];
 
-                             size_t srvsendbtndxsze = sizeof(srvsendbtndx);
+                             size_t srvsendbtndxsze = sizeof(srvsendbtndxvd);
 
                              int srvsendflgs = MSG_CONFIRM|MSG_DONTROUTE|MSG_DONTWAIT|MSG_OOB;
 
                              ssize_t srvsendbt = send(srvsocket, srvsendbtndxvd, srvsendbtndxsze, srvsendflgs);
    {
 
-                             void srvrecvbtndxvd = srvrecvbtndx[srvrecvbtndxsze];
+                             void *srvrecvbtndxvd = srvrecvbtndx[srvrecvbtndxsze];
 
-                             size_t srvrecvbtndxsze = sizeof(srvrecvbtndx);
+                             size_t srvrecvbtndxsze = sizeof(srvrecvbtndxvd);
 
                              int srvrecvflags = MSG_DONTWAIT|MSG_OOB|MSG_PEEK;
 
