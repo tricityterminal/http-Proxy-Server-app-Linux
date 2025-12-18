@@ -18,9 +18,9 @@
 
 
 
-#define "http" 80
+#define http 80
 
-extern char srvsockipaddrstrng[srvsockipaddrstrngsze+1];
+
 
 extern struct addrinfo srvaddrnfo;
 
@@ -101,7 +101,7 @@ socklen_t srvsockaddrinfsze = sizeof(srvsockipaddr);
                   srvaddrnfo.ai_flags = srvsockmde;
                   srvaddrnfo.ai_family = sockvrsn2;
                   srvaddrnfo.ai_socktype = socktyp2;
-                  srcaddrnfo.ai_protocol = sockprtcl2;
+                  srvaddrnfo.ai_protocol = sockprtcl2;
                   srvaddrnfo.ai_addrlen = srvsockaddrinfsze;
                   srvaddrnfo.ai_addr = srvsockaddrinf;
                   srvaddrnfo.ai_canonname = srvaddrnfoiphost;
@@ -144,7 +144,7 @@ void getaddrinfoinst2zro = freeaddrinfo(srvaddrnfoinfr);
 
     struct sockaddr srvsockipaddr{
                srvsockipaddr.sa_family = srvsockipaddrvrsn;
-               srvsockipaddr.sa_data = srvsockipaddrstrng[srvsockipaddrstrng+1]
+               srvsockipaddr.sa_data = srvsockipaddrstrng[srvsockipaddrstrngsze+1]
                memset(&srvsockipaddr, 0, sizeof(srvsockipaddr));
            };
 
@@ -175,15 +175,15 @@ struct sockaddr_in srvsockaddr {
 
          const void *srvsetsockoptstnginf = &srvsetsockoptstng
 
-         socklen_t srvsetsockoptstnginfsze = sizeof(srvsetsockoptinf);
+         socklen_t = srvsetsockoptstnginfsze = sizeof(srvsetsockoptinf);
 
-         int srvsetsockopt setsockopt(srvsocket, sockprtcl2, srvsetsockopt, srvsetsockoptstnginf, srvsetsockoptstnginfsze);
+         int srvsetsockopt = setsockopt(srvsocket, sockprtcl2, srvsetsockoptstng, srvsetsockoptstnginf, srvsetsockoptstnginfsze);
   {
          int srvgetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_ACCEPTCONN|SO_REUSEPORT;
 
          void *restrict srvgetsockoptstnginf = &srvgetsockoptstng;
 
-         socklen_t *restrict srvgetsockoptstnginfsze = sizeof(srvgetsockoptstnginf)
+         socklen_t *restrict srvgetsockoptstnginfsze = sizeof(srvgetsockoptstnginf);
 
          int srvgetsockopt = getsockopt(srvsocket, sockprtcl2, srvgetsockoptstng, srvgetsockoptstnginf, srvgetsockoptstnginfsze);
   {
@@ -200,7 +200,7 @@ struct sockaddr_in srvsockaddr {
           struct sockaddr *_Nullable restrict accptsrvsockaddr;
           accptsrvsockaddr = struct(sockaddr*)&srvsockaddr;
 
-          socklen_t *_Nullable restrict accptsrvsockaddrlen = sizeof(srvsockaddr);
+          socklen_t *_Nullable restrict accptsrvsockaddrlen = sizeof(accptsrvsockaddr);
 
            int static srvacptcnct0 = accept(servsocket, accptsrvsockaddr, accptsrvsockaddrlen);
 {
@@ -210,11 +210,11 @@ struct sockaddr_in srvsockaddr {
 
            while(ipsappfd <= 300){
 
-               int *_Nullable isappfdwtst = 0;
+               int *_Nullable ipappfdwtst = 0;
 
-               int isappfdwtopt = WNOHANG;
+               int ipappfdwtopt = WNOHANG;
 
-                      pid_t isappfdwt = waitpid(isappfd, isappfdwtst, isappfdwtopt);
+                      pid_t ipappfdwt = waitpid(ipappfd, ipappfdwtst, ipappfdwtopt);
 
                       return 0;
 
@@ -223,7 +223,7 @@ struct sockaddr_in srvsockaddr {
 
 
 
-           int fcntlopt2 = O_NONBLOCK
+           int fcntlopt2 = O_NONBLOCK;
 
            int fcntlmde2 = 1;
 
@@ -252,22 +252,22 @@ struct sockaddr_in srvsockaddr {
                                  memset(&srvpolliopfd, 0, sizeof(srvpolliopfd));
                              };
 
-                             const void srvsendbtndx[srvsendbtndxsze];
+                             const void srvsendbtndxvd = srvsendbtndx[srvsendbtndxsze];
 
                              size_t srvsendbtndxsze = sizeof(srvsendbtndx);
 
                              int srvsendflgs = MSG_CONFIRM|MSG_DONTROUTE|MSG_DONTWAIT|MSG_OOB;
 
-                             ssize_t srvsendbt = send(srvsocket, srvsendbtndx[srvsendbtndxsze] srvsendbtndxsze, srvsendflgs);
+                             ssize_t srvsendbt = send(srvsocket, srvsendbtndxvd, srvsendbtndxsze, srvsendflgs);
    {
 
-                             void srvrecvbtndx[srvrecvbtndxsze];
+                             void srvrecvbtndxvd = srvrecvbtndx[srvrecvbtndxsze];
 
                              size_t srvrecvbtndxsze = sizeof(srvrecvbtndx);
 
                              int srvrecvflags = MSG_DONTWAIT|MSG_OOB|MSG_PEEK;
 
-                             ssize_t srvrecvbt = recv(clisocket, clirecvbtndx[clirecvbtndxsze], clirecvbtndxsze, clirecvflags);
+                             ssize_t srvrecvbt = recv(srvsocket, srvrecvbtndxvd, srvrecvbtndxsze, srvrecvflags);
 {
 
 
