@@ -18,7 +18,7 @@
 
 
 
-#define http 80
+#define "http" 80
 
 extern char srvsockipaddrstrng[srvsockipaddrstrngsze+1];
 
@@ -40,9 +40,10 @@ int main(int argc, char *argv[])
 {
 
 
-const struct sockaddr *restrict gtmmenfosockaddr = &srvsockipaddr;
+const struct sockaddr *restrict gtmmenfosockaddr;
+gtmmenfosockaddr = struct(sockaddr*)&srvsockipaddr;
 
-socklen_t gtmmenfosockaddrsze = sizeof(gtmmenfosockaddr);
+socklen_t gtmmenfosockaddrsze = sizeof(srvsockipaddr);
 
 char hostnmeip[hostnmeipsze+1] = NULL;
 
@@ -52,7 +53,7 @@ char servportip[servportipsze+1] = NULL;
 
 socklen_t servportipsze = sizeof(servportip);
 
-int servdmnapiflgs = NI_NUMERICHOST|NI_NUMERICSERV;
+int servdmnapiflgs = NI_NUMERICHOST|NI_NUMERICSERV|NI_IDN|NI_IDN_USE_STD3_ASCII_RULES;
 
 int servdmnapi = getnameinfo(gtmmenfosockaddr, gtmmenfosockaddrsze, hostnmeip[hostnmeipsze+1], hostnmeipsze, servportip[servportipsze+1], servportipsze, servdmnapiflgs);
 {
@@ -80,14 +81,15 @@ int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", 
     int sockprtcl2 = IPPROTO_TCP;
 
 
-const struct sockaddr *srvsockaddrinf = &srvsockipaddr;
+const struct sockaddr *srvsockaddrinf;
+srvsockaddrinf = struct(sockaddr*)&srvsockipaddr;
 
-socklen_t srvsockaddrinfsze = sizeof(srvsockaddrinf);
+socklen_t srvsockaddrinfsze = sizeof(srvsockipaddr);
 
 
 
 
-    int srvsockmde = AI_NUMERICHOST|AI_NUMERICSERV|AI_ADDRCONFIG;
+    int srvsockmde = AI_NUMERICHOST|AI_NUMERICSERV|AI_ADDRCONFIG|AI_IDN|AI_IDN_USE_STD3_ASCII_RULES;
 
 
 
@@ -110,9 +112,9 @@ socklen_t srvsockaddrinfsze = sizeof(srvsockaddrinf);
 
               
               
-              const struct addrinfo *restrict srvaddrnfoinf = &srvaddrnfo;
+              const struct addrinfo *restrict srvaddrnfoinf = srvaddrnfo;
 
-              struct addrinfo ** restrict srvaddrnfoinfret = &srvaddrnfoinfr;
+              struct addrinfo ** restrict srvaddrnfoinfret = srvaddrnfoinfr;
 
               const char *restrict getaddrinfosrvstng = "http";
 
@@ -195,9 +197,10 @@ struct sockaddr_in srvsockaddr {
 
            int static servapicnct = bind(srvsocket, srvsockaddrinf, srvsockaddrinfsze);
 {
-          struct sockaddr *_Nullable restrict accptsrvsockaddr = &srvsockaddr
+          struct sockaddr *_Nullable restrict accptsrvsockaddr;
+          accptsrvsockaddr = struct(sockaddr*)&srvsockaddr;
 
-          socklen_t *_Nullable restrict accptsrvsockaddrlen = sizeof(accptsrvsockaddr);
+          socklen_t *_Nullable restrict accptsrvsockaddrlen = sizeof(srvsockaddr);
 
            int static srvacptcnct0 = accept(servsocket, accptsrvsockaddr, accptsrvsockaddrlen);
 {

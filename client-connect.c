@@ -15,7 +15,7 @@
 
 
 
-#define http 80
+#define "http" 80
 
 
 extern char clisockipaddrstrng[clisockipaddrstrngsze+1];
@@ -30,7 +30,7 @@ extern const char *clisockipaddrhst2nt;
 
 extern const in_addr_t clisockipaddrnt;
 
-int cliprogram(int cliprogramend)
+void cliprogram();
 {
 
 
@@ -42,12 +42,13 @@ int cliprogram(int cliprogramend)
 
 
 
-const struct sockaddr *clisockaddrinf = &clisockaddr;
+const struct sockaddr *clisockaddrinf;
+clisockaddrinf = struct(sockaddr*)&clisockaddr
 
-socklen_t clisockaddrinfsze = sizeof(clisockaddrinf);
+socklen_t clisockaddrinfsze = sizeof(clisockaddr);
 
 
-int clisockmde = AI_PASSIVE|AI_ADDRCONFIG;
+int clisockmde = AI_PASSIVE|AI_ADDRCONFIG|AI_IDN|AI_IDN_ALLOW_UNASSIGNED;
 
 
 char *cliaddrnfoiphost = NULL;
@@ -69,7 +70,7 @@ struct addrinfo cliaddrnfo {
 
 
 
-const struct addrinfo *restrict cliaddrnfoinf = &cliaddrnfo;
+const struct addrinfo *restrict cliaddrnfoinf = cliaddrnfo;
 
 struct addrinfo ** restrict cliaddrnfoinfret = cliaddrnfoinfr;
 
@@ -131,7 +132,7 @@ struct sockaddr_in clisockaddr {
 
        int clisetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_REUSEADDR;
 
-       const void *clisetsockoptstnginf = &clisetsockoptstng
+       const void *clisetsockoptstnginf = clisetsockoptstng;
 
        socklen_t clisetsockoptstnginfsze = sizeof(clisetsockoptinf);
 
@@ -139,20 +140,22 @@ struct sockaddr_in clisockaddr {
 {
        int cligetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_REUSEADDR;
 
-       void *restrict cligetsockoptstnginf = &cligetsockoptstng;
+       void *restrict cligetsockoptstnginf = cligetsockoptstng;
 
-       socklen_t *restrict cligetsockoptstnginfsze = sizeof(cligetsockoptstnginf)
+       socklen_t *restrict cligetsockoptstnginfsze = sizeof(cligetsockoptstnginf);
 
        int cligetsockopt = getsockopt(clisocket, sockprtcl, cligetsockoptstng, cligetsockoptstnginf, cligetsockoptstnginfsze);
 {
 
 
-       struct sockaddr *restrict clisockaddrinfr = &clisockaddr;
+       struct sockaddr *restrict clisockaddrinfr;
+       clisockaddrinfr = struct(sockadrr*)&clisockaddr;
 
        socklen_t *restrict clisockaddrinfrsze = sizeof(clisockaddrinfr);
 
          int cligetsockinstnme = getsockname(clisocket, clisockaddrinfr, clisockaddrinfrsze);
 {
+
 
 
        int static clisockcnct = connect(clisocket, clisockaddrinf, clisockaddrinfsze);
@@ -219,9 +222,9 @@ struct sockaddr_in clisockaddr {
 }
 }
 
-int cliprogramend = 0;
 
-return cliprogramend;
+
+return 0;
 
 
 
