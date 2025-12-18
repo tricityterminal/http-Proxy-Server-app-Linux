@@ -28,7 +28,7 @@ extern int srvsocket;
 
 extern struct sockaddr_in srvsockaddr;
 
-extern struct struct sockaddr srvsockipaddr;
+extern struct sockaddr srvsockipaddr;
 
 extern const char *srvsockipaddrhst2nt;
 
@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 
 
 const struct sockaddr *restrict gtmmenfosockaddr;
-gtmmenfosockaddr = struct(sockaddr*)&srvsockipaddr;
+gtmmenfosockaddr = (struct sockaddr*)&srvsockipaddr;
 
 socklen_t gtmmenfosockaddrsze = sizeof(srvsockipaddr);
 
@@ -82,7 +82,7 @@ int srvdmnservproxyip = printf("proxy-server-name %s : %s proxy-server-port\n", 
 
 
 const struct sockaddr *srvsockaddrinf;
-srvsockaddrinf = struct(sockaddr*)&srvsockipaddr;
+srvsockaddrinf = (struct sockaddr*)&srvsockipaddr;
 
 socklen_t srvsockaddrinfsze = sizeof(srvsockipaddr);
 
@@ -144,7 +144,7 @@ void getaddrinfoinst2zro = freeaddrinfo(srvaddrnfoinfr);
 
     struct sockaddr srvsockipaddr{
                srvsockipaddr.sa_family = srvsockipaddrvrsn;
-               srvsockipaddr.sa_data = srvsockipaddrstrng[srvsockipaddrstrngsze+1]
+               srvsockipaddr.sa_data = srvsockipaddrstrng[srvsockipaddrstrngsze+1];
                memset(&srvsockipaddr, 0, sizeof(srvsockipaddr));
            };
 
@@ -152,8 +152,18 @@ void getaddrinfoinst2zro = freeaddrinfo(srvaddrnfoinfr);
            const char *srvsockipaddrhst2nt = htonl(srvsockipaddrstrng[srvsockipaddrstrngsze+1]);
 
            in_addr_t srvsockipaddrnt = inet_addr(srvsockipaddrhst2nt);
+           
+           const void *restrict srvsocketipstrnghbtdrc = srvsockipaddrnt;
+           
+           char *restrict srvsocketipstrnghbtopt = NULL;
+           
+           socklen_t srvsocketipstrnghbtoptsze = sizeof(srvsocketipstrnghbtopt);
+           
+           const char srvsocketipstrnghbt = *inet_ntop(
+                             sockvrsn2, srvsocketipstrnghbtdrc,
+                             srvsocketipstrnghbtoptsze, srvsocketipstrnghbtoptsze);
 
-           struct in_addr srvsockip{
+           struct in_addr srvsockip {
                srvsockip.s_addr = srvsockipaddrnt;
                memset(&srvsockip, 0, sizeof(srvsockip));
                };
@@ -173,7 +183,7 @@ struct sockaddr_in srvsockaddr {
 
          int srvsetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_ACCEPTCONN|SO_REUSEPORT;
 
-         const void *srvsetsockoptstnginf = &srvsetsockoptstng
+         const void *srvsetsockoptstnginf = srvsetsockoptstng
 
          socklen_t = srvsetsockoptstnginfsze = sizeof(srvsetsockoptinf);
 
@@ -181,7 +191,7 @@ struct sockaddr_in srvsockaddr {
   {
          int srvgetsockoptstng = SO_DONTROUTE|SO_KEEPALIVE|SO_LINGER|SO_OOBINLINE|SO_ACCEPTCONN|SO_REUSEPORT;
 
-         void *restrict srvgetsockoptstnginf = &srvgetsockoptstng;
+         void *restrict srvgetsockoptstnginf = srvgetsockoptstng;
 
          socklen_t *restrict srvgetsockoptstnginfsze = sizeof(srvgetsockoptstnginf);
 
@@ -189,7 +199,7 @@ struct sockaddr_in srvsockaddr {
   {
           int srvpndlstnlog = SOMAXCONN;
 
-           int static srvpndlstn = listen(servsocket, srvpndlstnlog);
+           int static srvpndlstn = listen(srvsocket, srvpndlstnlog);
 {
 
 
@@ -198,11 +208,11 @@ struct sockaddr_in srvsockaddr {
            int static servapicnct = bind(srvsocket, srvsockaddrinf, srvsockaddrinfsze);
 {
           struct sockaddr *_Nullable restrict accptsrvsockaddr;
-          accptsrvsockaddr = struct(sockaddr*)&srvsockaddr;
+          accptsrvsockaddr = (struct sockaddr*)&srvsockaddr;
 
           socklen_t *_Nullable restrict accptsrvsockaddrlen = sizeof(accptsrvsockaddr);
 
-           int static srvacptcnct0 = accept(servsocket, accptsrvsockaddr, accptsrvsockaddrlen);
+           int static srvacptcnct0 = accept(srvsocket, accptsrvsockaddr, accptsrvsockaddrlen);
 {
            pid_t ipsappfd;
 

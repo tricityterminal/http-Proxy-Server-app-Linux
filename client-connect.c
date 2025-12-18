@@ -111,11 +111,25 @@ void cliaddrnfoclr = freeaddrinfo(cliaddrnfoinfr);
              const char *clisockipaddrhst2nt = htonl(clisockipaddrstrng[clisockipaddrstrngsze+1]);
 
               in_addr_t clisockipaddrnt = inet_addr(clisockipaddrhst2nt);
+              
+                 const void *restrict clisocketipstrnghbtdrc = clisockipaddrnt;
+           
+           char *restrict clisocketipstrnghbtopt = NULL;
+           
+           socklen_t clisocketipstrnghbtoptsze = sizeof(srvsocketipstrnghbtopt);
+           
+           const char clisocketipstrnghbt = *inet_ntop(
+                             sockvrsn, clisocketipstrnghbtdrc,
+                             clisocketipstrnghbtoptsze, clisocketipstrnghbtoptsze);
 
              struct in_addr clisockip {
                  clisockip.s_addr = clisockipaddrnt;
                  memset(&clisockip, 0, sizeof(clisockip));
              };
+             
+             
+             
+             
 
 sa_family_t clisockaddrvrsn = sockvrsn;
 
@@ -193,22 +207,22 @@ struct sockaddr_in clisockaddr {
                               memset(&clipolliopfd, 0, sizeof(clipolliopfd));
                           };
 
-                          const void clisendbtndx[clisendbtndxsze];
+                          const void clisendbtndxvd = clisendbtndx[clisendbtndxsze];
 
-                          size_t clisendbtndxsze = sizeof(clisendbtndx);
+                          size_t clisendbtndxsze = sizeof(clisendbtndxvd);
 
                           int clisendflgs = MSG_CONFIRM|MSG_DONTROUTE|MSG_DONTWAIT|MSG_OOB;
 
-                          ssize_t clisendbt = send(clisocket, clisendbtndx[clisendbtndxsze] clisendbtndxsze, clisendflgs);
+                          ssize_t clisendbt = send(clisocket, clisendbtndxvd. clisendbtndxsze, clisendflgs);
 {
 
-                          void clirecvbtndx[clirecvbtndxsze];
+                          void clirecvbtndxvd = clirecvbtndx[clirecvbtndxsze];
 
-                          size_t clirecvbtndxsze = sizeof(clirecvbtndx);
+                          size_t clirecvbtndxsze = sizeof(clirecvbtndxsze);
 
                           int clirecvflags = MSG_DONTWAIT|MSG_OOB|MSG_PEEK;
 
-                          ssize_t clirecvbt = recv(clisocket, clirecvbtndx[clirecvbtndxsze], clirecvbtndxsze, clirecvflags);
+                          ssize_t clirecvbt = recv(clisocket, clirecvbtndxvd, clirecvbtndxsze, clirecvflags);
 {
 
 
