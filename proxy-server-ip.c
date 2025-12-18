@@ -43,15 +43,19 @@ int main(int argc, char *argv[])
 const struct sockaddr *restrict gtmmenfosockaddr;
 gtmmenfosockaddr = (struct sockaddr*)&srvsockipaddr;
 
-socklen_t gtmmenfosockaddrsze = sizeof(srvsockipaddr);
+socklen_t gtmmenfosockaddrsze0 = sizeof(gtmmenfosockaddr);
+
+char _Nullable restrict *hostnmeipstrng = NULL;
+
+socklen_t hostnmeipsze = sizeof(hostnmeipstrng);
 
 char hostnmeip[hostnmeipsze+1] = NULL;
 
-socklen_t hostnmeipsze = sizeof(hostnmeip);
+char _Nullable restrict *servportipsnmstrng = NULL;
 
-char servportip[servportipsze+1] = NULL;
+socklen_t servportipsnm = sizeof(servportipsnmstrng);
 
-socklen_t servportipsze = sizeof(servportip);
+char servportipsnm[servportipsnmsze+1] = NULL;
 
 int servdmnapiflgs = NI_NUMERICHOST|NI_NUMERICSERV|NI_IDN|NI_IDN_USE_STD3_ASCII_RULES;
 
@@ -202,7 +206,10 @@ struct sockaddr_in srvsockaddr {
            int static srvpndlstn = listen(srvsocket, srvpndlstnlog);
 {
 
+const struct sockaddr *restrict gtmmenfosockaddr;
+gtmmenfosockaddr = (struct sockaddr*)&srvsockipaddr;
 
+socklen_t gtmmenfosockaddrsze1 = sizeof(srvsockipaddr);
 
 
            int static servapicnct = bind(srvsocket, srvsockaddrinf, srvsockaddrinfsze);
